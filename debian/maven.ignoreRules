@@ -1,0 +1,5 @@
+
+xerces xercesImpl * * * *
+org.apache.maven.plugins maven-javadoc-plugin * * * *
+org.apache.maven.plugins maven-source-plugin * * * *
+org.sonatype.plugins nexus-staging-maven-plugin * * * *

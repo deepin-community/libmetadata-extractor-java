@@ -1,0 +1,19 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: metadata-extractor
+Upstream-Contact: Drew Noakes <drew@drewnoakes.com>
+Source: https://github.com/drewnoakes/metadata-extractor
+
+Files: *
+Copyright: 2002-2017, Drew Noakes
+License: Apache-2.0
+
+Files: debian/*
+Copyright: 2007, Andreas Putzo <andreas@putzo.net>
+           2010, Torsten Werner <twerner@debian.org>
+           2013, Emmanuel Bourg <ebourg@apache.org>
+           2017, Markus Koschany <apo@debian.org>
+License: Apache-2.0
+
+License: Apache-2.0
+ On Debian systems you can find the complete text of the
+ Apache-2.0 license in '/usr/share/common-licenses/Apache-2.0'

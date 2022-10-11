@@ -1,0 +1,28 @@
+Source: libmetadata-extractor-java
+Section: java
+Priority: optional
+Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Uploaders: Emmanuel Bourg <ebourg@apache.org>
+Build-Depends:
+ debhelper (>= 11),
+ default-jdk,
+ javahelper,
+ junit4,
+ libxmpcore-java,
+ maven-debian-helper
+Standards-Version: 4.3.0
+Vcs-Git: https://salsa.debian.org/java-team/libmetadata-extractor-java.git
+Vcs-Browser: https://salsa.debian.org/java-team/libmetadata-extractor-java
+Homepage: http://www.drewnoakes.com/code/exif/
+
+Package: libmetadata-extractor-java
+Architecture: all
+Depends: libxmpcore-java, ${misc:Depends}
+Breaks:
+ gpsprune (<< 17.2-2~),
+ josm (<< 0.0.svn8159~),
+ libtika-java (<< 1.5-2~)
+Description: JPEG metadata extraction framework
+ Java based metadata extraction library for JPEG images
+ with support for Exif and Iptc metadata segments, including
+ manufacturer specific metadata of several digital camera models.

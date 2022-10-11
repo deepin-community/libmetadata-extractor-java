@@ -1,0 +1,165 @@
+libmetadata-extractor-java (2.11.0-1) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>  Wed, 25 May 2022 18:07:39 +0800
+
+libmetadata-extractor-java (2.11.0-1) unstable; urgency=medium
+
+  * New upstream release
+    - Removed the patch
+  * Removed the -java-doc package
+  * Standards-Version updated to 4.3.0
+  * Switch to debhelper level 11
+  * Use salsa.debian.org Vcs-* URLs
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Tue, 22 Jan 2019 23:39:03 +0100
+
+libmetadata-extractor-java (2.10.1-3) unstable; urgency=medium
+
+  * Team upload.
+  * Use javahelper to fix the Class-Path attribute for xmpcore.jar.
+    Thanks to Bas Couwenberg for the report and patch. (Closes: #880746)
+  * Declare compliance with Debian Policy 4.1.1.
+
+ -- Markus Koschany <apo@debian.org>  Sat, 04 Nov 2017 22:44:19 +0100
+
+libmetadata-extractor-java (2.10.1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Upload to unstable.
+
+ -- Markus Koschany <apo@debian.org>  Fri, 21 Jul 2017 12:37:40 +0200
+
+libmetadata-extractor-java (2.10.1-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream version 2.10.1.
+  * Switch to compat level 10.
+  * Declare compliance with Debian Policy 4.0.0.
+  * Use secure Vcs-URI.
+  * Use https for Format field.
+  * Switch from cdbs to dh sequencer and from Ant to Maven build system.
+  * Drop all patches. They are no longer needed.
+  * Ignore org.sonatype.plugins:nexus-staging-maven-plugin.
+  * Add libmaven-javadoc-plugin-java to B-D.
+  * Enable the Junit test suite.
+  * Add no-google-analytics.patch.
+    The javascript code causes a FTBFS due to the new behavior of Java 8 to
+    treat javascript in Javadoc as error. This behvavior can be ignored by
+    using the option
+      <additionalparam>--allow-script-in-comments</additionalparam>
+    However the Google Analytics code is also a privacy issue hence I prefer to
+    remove it.
+  * Use the Apache-2.0 license for debian/* files because that makes it easier
+    for upstream to incorporate patches.
+
+ -- Markus Koschany <apo@debian.org>  Fri, 30 Jun 2017 23:08:53 +0200
+
+libmetadata-extractor-java (2.7.2-2) unstable; urgency=medium
+
+  * Upload to unstable
+  * debian/control: Updated the reverse dependencies broken by the version 2.7.2
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Mon, 01 Jun 2015 00:35:39 +0200
+
+libmetadata-extractor-java (2.7.2-1) experimental; urgency=medium
+
+  * New upstream release (Closes: #780179)
+    - Refreshed 01_build.patch
+    - Removed 02-fix-exifreader-regression.patch (fixed upstream)
+  * debian/rules:
+    - Set the lib-xmp and lib-junit parameters to configure the classpath
+    - No longer install the now missing upstream changelog
+    - Use the upstream pom instead of downloading it from Maven Central
+  * Moved the package to Git
+  * debian/watch: Watch the release tags on Github
+  * debian/orig-tar.sh: Download the sources from Github
+  * debian/copyright: Updated the URL of the source code
+  * debian/control: Standards-Version updated to 3.9.6 (no changes)
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Tue, 10 Mar 2015 17:22:37 +0100
+
+libmetadata-extractor-java (2.6.4-2) unstable; urgency=medium
+
+  * Upload to unstable (Closes: #725186)
+  * Fixed a regression in ExifReader with geotagged images
+  * Breaks josm (<< 0.0.svn6687) and gpsprune (<< 15.2)
+  * Use XZ compression for the upstream tarball
+  * Standards-Version updated to 3.9.5 (no changes)
+  * Switch to debhelper level 9
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Fri, 27 Jun 2014 17:31:47 +0200
+
+libmetadata-extractor-java (2.6.4-1) experimental; urgency=low
+
+  * New upstream release
+    - Removed 20nosun.dpatch (applied upstream)
+    - Added a patch to set the encoding of the source files
+  * Install the Maven pom and the jar into /usr/share/maven-repo
+  * Linked the javadoc with the default-jdk-doc
+  * Enabled the debugging info in the compiled classes
+  * Removed 10buildxml.dpatch to enable the unit tests
+  * debian/rules:
+    - Added a get-orig-source target to build the source tarball
+    - Added a get-orig-pom target to fetch the Maven pom
+  * debian/control:
+    - Updated Standards-Version to 3.9.4 (no changes)
+    - Use canonical URLs for the Vcs-* fields
+    - libmetadata-extractor-java-doc suggests libmetadata-extractor-java
+      but no longer recommends it
+  * debian/copyright: Updated to the Copyright Format 1.0
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Tue, 23 Jul 2013 23:55:43 +0200
+
+libmetadata-extractor-java (2.3.1+dfsg-2) unstable; urgency=low
+
+  * Team upload
+
+  [ Michael Koch ]
+  * Updated watch file to remove '+dfsg' from local version.
+
+  [ Torsten Werner ]
+  * Change Section: java.
+  * Switch to default-jdk (Closes: #577902).
+  * Add Depends: ${misc:Depends}.
+  * Remove Andreas Putzo from Uploaders list.
+  * Switch to source format 3.0.
+  * Add Vcs headers.
+  * Update Standards-Version: 3.8.4.
+  * Refer to license file GPL-2.
+
+ -- Torsten Werner <twerner@debian.org>  Thu, 15 Apr 2010 16:37:53 +0200
+
+libmetadata-extractor-java (2.3.1+dfsg-1) unstable; urgency=low
+
+  * Add 20nosun.dpatch provided by Gabriel Ebner to remove
+    all references to the com.sun classes.
+    Package builds with a free java implementation now and thus
+    can be uploaded to main.
+    Changed upstream_version to re-upload orig.tar.gz.
+  * Add Debian readme file to explain differences to the upstream version.
+  * debian/rules:
+    - Use dpatch instead of CDBS simple-patchsys.
+    - Build with java-gcj.
+  * debian/control:
+    - Added dpatch to build-deps.
+    - Replaced sun's java with java-gcj-compat in dep/build-dep.
+    - Add new Homepage field and remove homepage from long description.
+    - Move package to main. Sun's java is no longer needed.
+    - Bumped Standards-Version to 3.7.3.
+
+ -- Andreas Putzo <andreas@putzo.net>  Wed, 12 Dec 2007 07:36:52 +0000
+
+libmetadata-extractor-java (2.3.1-2) unstable; urgency=low
+
+  * Added debian/ant.properties to set javac's source/target property to 1.3.
+
+ -- Andreas Putzo <andreas@putzo.net>  Wed, 12 Sep 2007 20:52:57 +0000
+
+libmetadata-extractor-java (2.3.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #434090)
+
+ -- Andreas Putzo <andreas@putzo.net>  Fri, 20 Jul 2007 19:15:37 +0000
+
